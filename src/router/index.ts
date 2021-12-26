@@ -18,8 +18,13 @@ const routes: Array<RouteRecordRaw> = [
         name: "c",
         component: C,
     },
+    {
+        path: "/:catchAll(.*)",
+        redirect: "/",
+    },
 ]
 
+/** 路由控制器 */
 const router = createRouter({
     history: createWebHashHistory("/"),
     routes,
