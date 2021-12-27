@@ -1,18 +1,32 @@
 import router from "@/router"
-import { ComponentOptions, ref, defineProps } from "vue"
+import { ref, defineComponent } from "vue"
 import style from "./s.module.less"
 
-interface prop {
-    /** 时间 */
-    time: number
-}
+/** C的子组件 */
+const CDEF = defineComponent({
+    name: "c-child",
+    props: {
+        /** 时间 */
+        time: {
+            type: Number,
+            require: true,
+        },
+    },
+
+    setup(pp) {
+        const dd = pp.time
+        console.log(dd, "dd")
+
+        return () => <div>{dd}--</div>
+    },
+})
 
 /** 组件ccc */
-const CCC: ComponentOptions<prop> = {
+const CCC = defineComponent({
     name: "CC",
-    setup(pc: prop) {
+    setup() {
+        /** c-c-c-c */
         const cc = ref(3)
-        const dd = pc.time
         return () => (
             <div
                 class={style.txt}
@@ -20,9 +34,7 @@ const CCC: ComponentOptions<prop> = {
                     cc.value++
                 }}
             >
-                <div>
-                    {cc.value} - {dd}
-                </div>
+                <div>{cc.value}</div>
                 <div>
                     <button
                         onClick={() => {
@@ -32,8 +44,10 @@ const CCC: ComponentOptions<prop> = {
                         to a
                     </button>
                 </div>
+                <CDEF time={222} />
             </div>
         )
     },
-}
+})
+
 export default CCC

@@ -1,11 +1,13 @@
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject } from "rxjs"
 
 class _c {
-    count$ = new BehaviorSubject(0);
+    /** 计数 */
+    count$ = new BehaviorSubject(0)
+    /** ++1 */
     add_one() {
-        const v = this.count$.value + 1;
-        this.count$.next(v);
+        const v = this.count$.value + 1
+        this.count$.next(v)
     }
 }
 
-export const SubjCount = new _c();
+export const SubjCount = new _c()
