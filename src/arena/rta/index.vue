@@ -10,7 +10,7 @@ function toc() {
     router.push("/c")
 }
 
-const arrn = useObservable(stream$)
+const arrn = useObservable(stream$, [])
 </script>
 
 <template>
