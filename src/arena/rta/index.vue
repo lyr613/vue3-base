@@ -23,7 +23,7 @@ const arrn = useObservable(stream$, [])
     </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 @keyframes item {
     0% {
         width: 0;
